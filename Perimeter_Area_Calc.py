@@ -19,22 +19,21 @@ def mainrectangle():
 mainrectangle()
 
 # Square
-def areasquare(w, l):
+def areasquare( l ):
     # Calculate the area
-    areasquare= w * l
+    areasquare= l**2
     return areasquare
 
-def perimetersquare(w, l):
+def perimetersquare( l ):
     # Calculate the perimeter
-    perimetersquare = 2 * (w + l)
+    perimetersquare = 4* l
     return perimetersquare
 
 def mainsquare():
-    w = float(input('Enter width of Square: '))
     l = float(input('Enter length of Square: '))
 
-    print("Area of Square:", areasquare(w, l))
-    print("Perimeter of Square:", perimetersquare(w, l))
+    print("Area of Square:", areasquare( l ))
+    print("Perimeter of Square:", perimetersquare( l ))
 
 mainsquare()
 

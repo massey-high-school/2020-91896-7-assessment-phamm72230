@@ -1,19 +1,24 @@
-p = 3.14159265359
-
-def areacircle(p, r):
+# Square
+def areasquare( l ):
     # Calculate the area
-    areacircle = p * r * r
-    return areacircle
+    areasquare= l**2
+    return areasquare
 
-def circumference(p, r):
+def perimetersquare( l ):
     # Calculate the perimeter
-    circumference = 2 * p * r
-    return circumference
+    perimetersquare = 4* l
+    return perimetersquare
 
-def maincircle():
-    r = float(input('Enter radius of Circle: '))
+def mainsquare():
+    l = float(input('Enter length of Square: '))
 
-    print("Area of Circle:", areacircle(p, r))
-    print("Circumference of Circle:", circumference(p, r))
+    print("Area of Square:", areasquare( l ))
+    print("Perimeter of Square:", perimetersquare( l ))
 
-maincircle()
+mainsquare()
+
+
+
+chosen_shapes = string_checker\
+    ("Please enter the number representing the shape you want to calculate: ", shapes)
+print(chosen_shapes)
