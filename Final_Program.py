@@ -18,15 +18,15 @@ def num_check(question):
 
 # Triangle
 def areatriangle(a, b, c):
-    # calculate the semi-perimeter
+    # calculates the semi-perimeter
     s = (a + b + c) / 2
-    # calculate the area using Heron's formula
+    # calculates the area using Heron's formula
     areatriangle = (s * (s - a) * (s - b) * (s - c)) ** 0.5
     return areatriangle
 
 
 def perimetertriangle(a, b, c):
-    # Calculate the perimeter
+    # Calculates the perimeter
     perimetertriangle = a + b + c
     return perimetertriangle
 
