@@ -1,3 +1,4 @@
+# String Checker
 def string_checker(question, to_check):
     valid = False
     while not valid:
@@ -13,7 +14,7 @@ def string_checker(question, to_check):
         print("sorry that is not a valid response")
 
 
-# *** Main Routine starts here ***
+#  Main Routine
 print("1.Circle",
       "2.Square",
       "3.Rectangle",

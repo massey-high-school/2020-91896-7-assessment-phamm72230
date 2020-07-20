@@ -32,12 +32,15 @@ def perimetertriangle(a, b, c):
 
 
 def maintriangle():
+    # user input with number checking function
     a = num_check('Enter first side: ')
     b = num_check('Enter second side: ')
     c = num_check('Enter third side: ')
-
-    print("Area of Triangle:", areatriangle(a, b, c))
-    print("Perimeter of Triangle:", perimetertriangle(a, b, c))
+    # returns the area and perimeter
+    print("Area of Triangle:", areatriangle (a, b, c), unit_chosen, "^2")
+    print("Perimeter of Triangle:", perimetertriangle(a, b, c), unit_chosen)
+    # Asks user input and adds to calculation history
+    shape_list.append(['Triangle',areatriangle (a, b, c), perimetertriangle(a, b, c), unit_chosen ])
 
 
 # Trapezium
@@ -54,16 +57,18 @@ def perimetertrapezium(a, b, c, d):
 
 
 def maintrapezium():
+    # user input with number checking function
     a = num_check('Enter base no.1 of Trapezium: ')
     b = num_check('Enter base no.2 of Trapezium: ')
     c = num_check('Enter side no.1 of Trapezium: ')
     d = num_check('Enter side no.2 of Trapezium: ')
-
     h = num_check('Enter height of Trapezium: ')
 
-    print("Area of Trapezium:", areatrapezium(a, b, h))
-    print("Perimeter of Trapezium:", perimetertrapezium(a, b, c, d))
-
+    # returns the area and perimeter
+    print("Area of Trapezium:",  areatrapezium(a, b, h), unit_chosen, "^2")
+    print("Perimeter of Trapezium:", perimetertrapezium(a, b, c, d), unit_chosen)
+    # Asks user input and adds to calculation history
+    shape_list.append(['Trapezium', areatrapezium(a, b, h), perimetertrapezium(a, b, c, d), unit_chosen])
 
 # Parallelogram
 def areaparallelogram(b, h):
@@ -79,12 +84,15 @@ def perimeterparallelogram(b, h):
 
 
 def mainparallelogram():
+    # user input with number checking function
     b = num_check('Enter base of Parallelogram: ')
     h = num_check('Enter height of Parallelogram: ')
 
-    print("Area of Parallelogram:", areaparallelogram(b, h))
-    print("Perimeter of Parallelogram:", perimeterparallelogram(b, h))
-
+    # returns the area and perimeter
+    print("Area of Parallelogram:", areaparallelogram(b, h), unit_chosen, "^2")
+    print("Perimeter of Parallelogram:", perimeterparallelogram(b, h), unit_chosen)
+    # Asks user input and adds to calculation history
+    shape_list.append(['Parallelogram',  areaparallelogram(b, h), perimeterparallelogram(b, h), unit_chosen])
 
 # Rectangle
 def arearectangle(w, l):
@@ -100,11 +108,15 @@ def perimeterrectangle(w, l):
 
 
 def mainrectangle():
+    # user input with number checking function
     w = num_check('Enter width of Rectangle: ')
     l = num_check('Enter length of Rectangle: ')
 
-    print("Area of Rectangle:", arearectangle(w, l))
-    print("Perimeter of Rectangle:", perimeterrectangle(w, l))
+    # returns the area and perimeter
+    print("Area of Rectangle:", arearectangle(w, l), unit_chosen, "^2")
+    print("Perimeter of Rectangle:", perimeterrectangle(w, l), unit_chosen)
+    # Asks user input and adds to calculation history
+    shape_list.append(['Rectangle', arearectangle(w, l),perimeterrectangle(w, l), unit_chosen])
 
 # Square
 def areasquare(l):
@@ -120,10 +132,14 @@ def perimetersquare(l):
 
 
 def mainsquare():
+    # user input with number checking function
     l = num_check('Enter length of Square: ')
 
-    print("Area of Square:", areasquare(l))
-    print("Perimeter of Square:", perimetersquare(l))
+    # returns the area and perimeter
+    print("Area of Square:", areasquare(l), unit_chosen, "^2")
+    print("Perimeter of Square:", perimetersquare(l), unit_chosen)
+    # Asks user input and adds to calculation history
+    shape_list.append(['Square', areasquare(l), perimetersquare(l), unit_chosen])
 
 # Circle
 def areacircle(p, r):
@@ -139,12 +155,16 @@ def circumference(p, r):
 
 
 def maincircle():
+    # user input with number checking function
     r = num_check('Enter radius of Circle: ')
 
-    print("Area of Circle:", areacircle(p, r))
-    print("Circumference of Circle:", circumference(p, r))
+    # returns the area and perimeter
+    print("Area of Circle:", areacircle(p, r,),unit_chosen , "^2")
+    print("Circumference of Circle:", circumference(p, r),unit_chosen )
+    # Asks user input and adds to calculation history
+    shape_list.append(['Circle', areacircle(p, r,), circumference(p, r), unit_chosen])
 
-# Get Shape
+# String Checker
 def string_checker(question, to_check):
     valid = False
     while not valid:
@@ -159,6 +179,8 @@ def string_checker(question, to_check):
 
         print("sorry that is not a valid response")
 
+# Blank list for calculation history
+shape_list = []
 
 # *** Main Routine starts here ***
 print("1.Circle",
@@ -168,35 +190,56 @@ print("1.Circle",
       "5.Trapezium",
       "6.Triangle")
 
-shapes = ["1.Circle", "2.Square", "3.Rectangle", "4.Parallelogram", "5.Trapezium", "6.Triangle",]
+# loops the program until user wants to stop it
+keep_going = ""
+while keep_going == "":
+
+    # Get Shape
+    shapes = ["1.Circle", "2.Square", "3.Rectangle", "4.Parallelogram", "5.Trapezium", "6.Triangle",]
+    chosen_shapes = string_checker\
+        ("Please enter the number representing the shape you want to calculate: ", shapes)
+    print(chosen_shapes)
+
+    # adds units
+    print ("*** m, cm, mm ***")
+    units = ['m', 'cm', 'mm']
+    unit_chosen = string_checker\
+        ("What unit do you want to use?", units)
+    print(unit_chosen)
+
+    if chosen_shapes in [ '1.Circle'] :
+        # Circle
+        p = 3.14159265359
+        maincircle()
+
+    if chosen_shapes in [ '2.Square'] :
+        # Square
+        mainsquare()
+
+    if chosen_shapes in [ '3.Rectangle'] :
+        # Rectangle
+        mainrectangle()
+
+    if chosen_shapes in [ '4.Parallelogram'] :
+        # Parallelogram
+        mainparallelogram()
+
+    if chosen_shapes in [ '5.Trapezium'] :
+        # Trapezium
+        maintrapezium()
+
+    if chosen_shapes in [ '6.Triangle'] :
+        # Triangle
+        maintriangle()
+
+    # Calculation_History (loop within a loop)
+    print("**** Calculation History ****")
+    for item in shape_list:
+        print("shape:{} ".format(item[0]))
+        print("Area:{}{}^2 ".format( item[1],item[3]))
+        print("Perimeter:{}{} ".format( item[2], item[3]))
 
 
-chosen_shapes = string_checker\
-    ("Please enter the number representing the shape you want to calculate: ", shapes)
-print(chosen_shapes)
-
-
-if chosen_shapes in [ '1.Circle'] :
-    # Circle
-    p = 3.14159265359
-    maincircle()
-
-if chosen_shapes in [ '2.Square'] :
-    # Square
-    mainsquare()
-
-if chosen_shapes in [ '3.Rectangle'] :
-    # Rectangle
-    mainrectangle()
-
-if chosen_shapes in [ '4.Parallelogram'] :
-    # Parallelogram
-    mainparallelogram()
-
-if chosen_shapes in [ '5.Trapezium'] :
-    # Trapezium
-    maintrapezium()
-
-if chosen_shapes in [ '6.Triangle'] :
-    # Triangle
-    maintriangle()
+    # allows user to stop the program whenever they choose to
+    else:
+        keep_going = input("Press <enter> to continue or any key to quit")
