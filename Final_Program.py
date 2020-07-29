@@ -45,8 +45,8 @@ def maintriangle():
     print("Area of Triangle:", areatriangle (a, b, c), unit_chosen, "^2")
     print("Perimeter of Triangle:", perimetertriangle(a, b, c), unit_chosen)
     # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Triangle', "Area: {} {}^2".format(areatriangle (a, b, c), unit_chosen),
-                       "Perimeter: {} {}".format( perimetertriangle(a, b, c), unit_chosen)])
+    shape_list.append(['*** Triangle ***', "Area: {:.2f} {}^2".format(areatriangle (a, b, c), unit_chosen),
+                       "Perimeter: {:.2f} {}".format( perimetertriangle(a, b, c), unit_chosen)])
 
 
 # Triangle area finder 2
@@ -66,65 +66,70 @@ def maintriangle2():
     # returns the area
     print("Area of Triangle:", areatriangle2 (b,h), unit_chosen, "^2")
     # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Triangle', "Area: {} {}^2".format(areatriangle2 (b,h) ,unit_chosen)])
+    shape_list.append(['*** Triangle ***', "Area: {:.2f} {}^2".format(areatriangle2 (b,h) ,unit_chosen)])
 
 # Trapezium
-def areatrapezium(a, b, h):
+# Area of Trapezium
+def areatrapezium():
+    print()
+    a = num_check('Enter base no.1 of Trapezium: ')
+    b = num_check('Enter base no.2 of Trapezium: ')
+    h = num_check('Enter height of Trapezium: ')
+    print()
     # Calculate the area
-    areatrapezium = ((a + b) / 2) * h
-    return areatrapezium
+    area_trapezium = ((a + b) / 2) * h
+    # returns area
+    print("Area of Trapezium:", area_trapezium, unit_chosen, "^2")
+    # items in list for calculation history
+    shape_list.append(['*** Trapezium ***',
+                       "Area: {:.2f} {}^2".format(area_trapezium, unit_chosen)])
+    return area_trapezium
 
-
-def perimetertrapezium(a, b, c, d):
-    # Calculate the perimeter
-    perimetertrapezium = a + b + c + d
-    return perimetertrapezium
-
-
-def maintrapezium():
-    # user input with number checking function
+# Perimeter of Trapezium
+def perimetertrapezium():
     print()
     a = num_check('Enter base no.1 of Trapezium: ')
     b = num_check('Enter base no.2 of Trapezium: ')
     c = num_check('Enter side no.1 of Trapezium: ')
     d = num_check('Enter side no.2 of Trapezium: ')
-    h = num_check('Enter height of Trapezium: ')
     print()
-
-    # returns the area and perimeter
-    print("Area of Trapezium:",  areatrapezium(a, b, h), unit_chosen, "^2")
-    print("Perimeter of Trapezium:", perimetertrapezium(a, b, c, d), unit_chosen)
-    # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Trapezium',"Area: {} {}^2".format( areatrapezium(a, b, h), unit_chosen),
-                       "Perimeter: {} {}".format( perimetertrapezium(a, b, c, d), unit_chosen)])
+    # Calculate the perimeter
+    perimeter_trapezium = a + b + c + d
+    # returns perimeter
+    print("Perimeter of Trapezium:", perimeter_trapezium, unit_chosen)
+    # items in list for calculation history
+    shape_list.append(['*** Trapezium ***',
+                       "Perimeter: {:.2f} {}".format(perimeter_trapezium, unit_chosen)])
+    return perimeter_trapezium
 
 # Parallelogram
-def areaparallelogram(b, h):
-    # Calculate the area
-    areaparallelogram = b * h
-    return areaparallelogram
-
-
-def perimeterparallelogram(b, a):
-    # Calculate the perimeter
-    perimeterparallelogram = 2 * (b + a)
-    return perimeterparallelogram
-
-
-def mainparallelogram():
-    # user input with number checking function
+# Area
+def areaparallelogram():
     print()
-    a = num_check('Enter side of Parallelogram: ')
     b = num_check('Enter base of Parallelogram: ')
     h = num_check('Enter height of Parallelogram: ')
     print()
+    # Calculate the area
+    area_parallelogram = b * h
+    print("Area of Parallelogram:", area_parallelogram, unit_chosen, "^2")
+    shape_list.append(['*** Parallelogram ***',
+                       "Area: {:.2f} {}^2".format(area_parallelogram, unit_chosen),])
 
-    # returns the area and perimeter
-    print("Area of Parallelogram:", areaparallelogram(b, h), unit_chosen, "^2")
-    print("Perimeter of Parallelogram:", perimeterparallelogram(b, a), unit_chosen)
-    # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Parallelogram', "Area: {} {}^2".format( areaparallelogram(b, h),unit_chosen),
-                       "Perimeter: {} {}".format( perimeterparallelogram(b, a), unit_chosen)])
+    return area_parallelogram
+
+# Perimeter
+def perimeterparallelogram():
+    print()
+    a = num_check('Enter side of Parallelogram: ')
+    b = num_check('Enter base of Parallelogram: ')
+    print()
+    # Calculate the perimeter
+    perimeter_parallelogram = 2 * (b + a)
+    print("Perimeter of Parallelogram:", perimeter_parallelogram, unit_chosen)
+    shape_list.append(['*** Parallelogram ***',
+                       "Perimeter: {:.2f} {}".format(perimeter_parallelogram, unit_chosen)])
+
+    return perimeter_parallelogram
 
 # Rectangle
 def arearectangle(w, l):
@@ -150,8 +155,8 @@ def mainrectangle():
     print("Area of Rectangle:", arearectangle(w, l), unit_chosen, "^2")
     print("Perimeter of Rectangle:", perimeterrectangle(w, l), unit_chosen)
     # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Rectangle', "Area: {} {}^2".format( arearectangle(w, l),unit_chosen),
-                       "Perimeter: {} {}".format(perimeterrectangle(w, l),unit_chosen)])
+    shape_list.append(['*** Rectangle ***', "Area: {:.2f} {}^2".format( arearectangle(w, l),unit_chosen),
+                       "Perimeter: {:.2f} {}".format(perimeterrectangle(w, l),unit_chosen)])
 
 # Square
 def areasquare(l):
@@ -176,8 +181,8 @@ def mainsquare():
     print("Area of Square:", areasquare(l), unit_chosen, "^2")
     print("Perimeter of Square:", perimetersquare(l), unit_chosen)
     # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Square', "Area: {} {}^2".format(areasquare(l),unit_chosen),
-                       "Perimeter: {} {}".format(perimetersquare(l),unit_chosen)])
+    shape_list.append(['*** Square ***', "Area: {:.2f} {}^2".format(areasquare(l),unit_chosen),
+                       "Perimeter: {:.2f} {}".format(perimetersquare(l),unit_chosen)])
 
 # Circle
 def areacircle(p, r):
@@ -202,8 +207,8 @@ def maincircle():
     print("Area of Circle:", areacircle(p,r),unit_chosen , "^2")
     print("Circumference of Circle:", circumference(p, r),unit_chosen )
     # Asks user input and adds to calculation history
-    shape_list.append(['Shape: Circle', "Area: {} {}^2".format(areacircle(p, r),unit_chosen) ,
-                       "Perimeter: {} {}".format(circumference(p, r),unit_chosen)])
+    shape_list.append(['*** Circle ***', "Area: {:.2f} {}^2".format(areacircle(p, r),unit_chosen) ,
+                       "Perimeter: {:.2f} {}".format(circumference(p, r),unit_chosen)])
 
 # String Checker
 def string_checker(question, to_check):
@@ -228,6 +233,7 @@ keep_going = ""
 while keep_going == "":
 
     # *** Main Routine starts here ***
+
     print()
     print("1.Circle",
           "2.Square",
@@ -238,8 +244,10 @@ while keep_going == "":
     print()
 
     # Get Shape
+    # List of shapes
     shapes = ["1.Circle", "2.Square", "3.Rectangle", "4.Parallelogram", "5.Trapezium", "6.Triangle",]
     print()
+    # Ask user to choose a shape they want to calculate
     chosen_shapes = string_checker\
         ("Please enter the number representing the shape you want to calculate: ", shapes)
     print(chosen_shapes)
@@ -248,6 +256,7 @@ while keep_going == "":
     print()
     print ("*** m, cm, mm ***")
     units = ['m', 'cm', 'mm']
+    # Asks user which unit they want to use
     unit_chosen = string_checker\
         ("What unit do you want to use?", units)
     print(unit_chosen)
@@ -268,12 +277,33 @@ while keep_going == "":
         mainrectangle()
 
     if chosen_shapes in [ '4.Parallelogram'] :
-        # Parallelogram
-        mainparallelogram()
+        # Asks user if they want to calculate area or perimeter
+        print("Do you want to calculate the Area or Perimeter?")
+        aorppara = ['area', 'perimeter']
+        aorppara_chosen = string_checker \
+            ("Area or Perimeter?", aorppara)
+        print(aorppara_chosen)
+        if aorppara_chosen == 'area':
+            # Area of Parallelogram
+            areaparallelogram()
+        else:
+            # Perimeter of Parallelogram
+            perimeterparallelogram()
 
     if chosen_shapes in [ '5.Trapezium'] :
-        # Trapezium
-        maintrapezium()
+        #Asks user if they want to calculate area or perimeter
+        print("Do you want to calculate the Area or Perimeter?")
+        aorptrap = ['area', 'perimeter']
+        aorptrap_chosen = string_checker \
+            ("Area or Perimeter?", aorptrap)
+        print(aorptrap_chosen)
+        if aorptrap_chosen == 'area':
+            # Area of Trapezium
+            areatrapezium()
+        else:
+            # Perimeter of Trapezium
+            perimetertrapezium()
+
 
     if chosen_shapes in [ '6.Triangle'] :
         # When user chooses triangle asks user if they have values to all 3 sides
@@ -295,7 +325,7 @@ while keep_going == "":
     keep_going = input("Press <enter> to continue or any key to quit")
     print()
 
- # Calculation_History (loop within a loop)
+ # Calculation_History (list within a list)
 print()
 print("**** Calculation History ****")
 print()
